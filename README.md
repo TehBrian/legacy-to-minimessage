@@ -1,2 +1,2 @@
 # legacy-to-minimessage
-A simple website that translates legacy color codes into the MiniMessage format.
+A simple website which translates legacy color codes into MiniMessage format.
