@@ -16,11 +16,26 @@
     <h1>Legacy to MiniMessage Converter</h1>
 
     <textarea id="text" name="text" rows="20" cols="80"></textarea>
+
     <br>
-    <input type="checkbox" id="concise" name="concise">
+    <br>
+
     <label for="concise">Concise MiniMessage</label>
+    <input type="checkbox" id="concise" name="concise">
+    <span class="sub">(&lt;u&gt; vs &lt;underlined&gt;)</span>
+
     <br>
-    <button id="button" name="button">Convert</button>
+
+    <label for="char">Formatting Character</label>
+    <select name="char" id="char">
+        <option value="&">&</option>
+        <option value="§">§</option>
+    </select>
+
+    <br>
+    <br>
+
+    <button id="convert" name="convert">Convert</button>
 </body>
-    
+
 </html>

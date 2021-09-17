@@ -1,46 +1,48 @@
 function onLoad() {
-    var text = document.getElementById("text")
-    var button = document.getElementById("button")
-    var concise = document.getElementById("concise")
+    var textElement = document.getElementById("text")
+    var conciseElement = document.getElementById("concise")
+    var charElement = document.getElementById("char")
+    var convertElement = document.getElementById("convert")
 
-    button.addEventListener("click", function () {
-        var isConcise = concise.checked
-        var newText = text.value
+    convertElement.addEventListener("click", function () {
+        var concise = conciseElement.checked
+        var char = charElement.value
+        var text = textElement.value
 
-        newText = newText.replaceAll("&0", "<black>")
-        newText = newText.replaceAll("&1", "<dark_blue>")
-        newText = newText.replaceAll("&2", "<dark_green>")
-        newText = newText.replaceAll("&3", "<dark_aqua>")
-        newText = newText.replaceAll("&4", "<dark_red>")
-        newText = newText.replaceAll("&5", "<dark_purple>")
-        newText = newText.replaceAll("&6", "<gold>")
-        newText = newText.replaceAll("&7", "<gray>")
-        newText = newText.replaceAll("&8", "<dark_gray>")
-        newText = newText.replaceAll("&9", "<blue>")
-        newText = newText.replaceAll("&a", "<green>")
-        newText = newText.replaceAll("&b", "<aqua>")
-        newText = newText.replaceAll("&c", "<red>")
-        newText = newText.replaceAll("&d", "<light_purple>")
-        newText = newText.replaceAll("&e", "<yellow>")
-        newText = newText.replaceAll("&f", "<white>")
+        text = text.replaceAll(char + "0", "<black>")
+            .replaceAll(char + "1", "<dark_blue>")
+            .replaceAll(char + "2", "<dark_green>")
+            .replaceAll(char + "3", "<dark_aqua>")
+            .replaceAll(char + "4", "<dark_red>")
+            .replaceAll(char + "5", "<dark_purple>")
+            .replaceAll(char + "6", "<gold>")
+            .replaceAll(char + "7", "<gray>")
+            .replaceAll(char + "8", "<dark_gray>")
+            .replaceAll(char + "9", "<blue>")
+            .replaceAll(char + "a", "<green>")
+            .replaceAll(char + "b", "<aqua>")
+            .replaceAll(char + "c", "<red>")
+            .replaceAll(char + "d", "<light_purple>")
+            .replaceAll(char + "e", "<yellow>")
+            .replaceAll(char + "f", "<white>")
 
-        if (isConcise) {
-            newText = newText.replaceAll("&n", "<u>")
-            newText = newText.replaceAll("&m", "<st>")
-            newText = newText.replaceAll("&k", "<obf>")
-            newText = newText.replaceAll("&o", "<i>")
-            newText = newText.replaceAll("&l", "<b>")
-            newText = newText.replaceAll("&r", "<r>")
+        if (concise) {
+            text = text.replaceAll(char + "n", "<u>")
+                .replaceAll(char + "m", "<st>")
+                .replaceAll(char + "k", "<obf>")
+                .replaceAll(char + "o", "<i>")
+                .replaceAll(char + "l", "<b>")
+                .replaceAll(char + "r", "<r>")
         } else {
-            newText = newText.replaceAll("&m", "<underlined>")
-            newText = newText.replaceAll("&m", "<strikethrough>")
-            newText = newText.replaceAll("&k", "<obfuscated>")
-            newText = newText.replaceAll("&o", "<italic>")
-            newText = newText.replaceAll("&l", "<bold>")
-            newText = newText.replaceAll("&r", "<reset>")
+            text = text.replaceAll(char + "n", "<underlined>")
+                .replaceAll(char + "m", "<strikethrough>")
+                .replaceAll(char + "k", "<obfuscated>")
+                .replaceAll(char + "o", "<italic>")
+                .replaceAll(char + "l", "<bold>")
+                .replaceAll(char + "r", "<reset>")
         }
 
-        text.value = newText
+        textElement.value = text
     });
 }
 
