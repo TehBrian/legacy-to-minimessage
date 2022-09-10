@@ -1,4 +1,4 @@
-function convert(legacy, concise, char) {
+function convert(legacy, concise, char, rgb) {
     miniMessage = legacy.replaceAll(char + "0", "<black>")
         .replaceAll(char + "1", "<dark_blue>")
         .replaceAll(char + "2", "<dark_green>")
@@ -32,6 +32,11 @@ function convert(legacy, concise, char) {
             .replaceAll(char + "r", "<reset>");
     }
 
+    if (rgb) {
+        matcher = new RegExp(char + "#([0-9a-fA-F]{6})", "g")
+        miniMessage = miniMessage.replaceAll(matcher, "<#$1>");
+    }
+
     return miniMessage;
 }
 
@@ -39,14 +44,16 @@ function onLoad() {
     var textElement = document.getElementById("text");
     var conciseElement = document.getElementById("concise");
     var charElement = document.getElementById("char");
+    var rgbElement = document.getElementById("rgb");
     var convertElement = document.getElementById("convert");
 
     convertElement.addEventListener("click", function () {
         var text = textElement.value;
         var concise = conciseElement.checked;
         var char = charElement.value;
+        var rgb = rgbElement.checked;
 
-        textElement.value = convert(text, concise, char);
+        textElement.value = convert(text, concise, char, rgb);
     });
 }
 
